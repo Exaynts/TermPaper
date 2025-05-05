@@ -4,9 +4,9 @@
 class Square : public figures {
 public:
 	// Ввод данных
-	static void Add(Data& data);
+	static void Add();
 	// Поворот квадрата
-	static void Rotate(int figure_index, Data& data);
+	static void Rotate(int figure_index);
 	// Отрисовка
-	static void Draw(sf::RenderWindow& window, Data data, int i);
+	static void Draw(sf::RenderWindow& window, int i);
 };

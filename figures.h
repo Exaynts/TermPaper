@@ -1,16 +1,25 @@
 #pragma once
-#include <iostream>
 #include "Data.h"
-#include <SFML/Graphics.hpp>
-using namespace std;
 
 class figures: public Data {
+protected:
+	// Статический указатель на данные, общие для всех фигур
+	static Data* data;
 public:
-	vector<vector<string>> data = data_get();
+	// Инициализация данных
+	static void Init(Data& dataRef) {data = &dataRef;}
+
 	// Отрисовка фигур
-	static void Draw_all(sf::RenderWindow& window, Data& data);
+	static void Draw_all(sf::RenderWindow& window);
+
 	// Ввод и добавление фигур в список данных
-	static void Add(string type, Data& data);
+	void Add(string type);
+	// Заменяем данные координат фигуры
+	void Move(int figure_index, string type);
 	// Поворот фигур
-	static void Rotate(string type, int figure_index, Data& data);
+	void Rotate(string type, int figure_index);
+	// Изменить размер фигуры
+	virtual void Resize(int figure_index);
+	// Перекрасить фигуру
+	void Repaint(int figure_index);
 };

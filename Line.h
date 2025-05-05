@@ -1,12 +1,12 @@
 #pragma once
 #include "figures.h"
 
-class Line : public figures {
+class Line: public figures {
 public:
 	// Ввод данных
-	static void Add(Data& data);
+	static void Add();
 	// Поворот линии
-	static void Rotate(int figure_index, Data& data);
+	static void Rotate(int figure_index);
 	// Отрисовка
-	static void Draw(sf::RenderWindow& window, Data& data, int i);
+	static void Draw(sf::RenderWindow& window, int i);
 };

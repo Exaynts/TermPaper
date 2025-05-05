@@ -4,6 +4,7 @@
 #include <string>
 #include <math.h> // Для выичисления координат в функции Rotate()
 #include <fstream> // Для сохранения файла
+#include <SFML/Graphics.hpp>
 using namespace std;
 
 class Data {
@@ -15,22 +16,12 @@ public:
 	Data();
 	// Количество фигур
 	int Length();
-	// Геттеры
+	// Геттер
 	string Get(int i, int j);
-	vector<vector<string>> data_get();
 	// Сеттер
 	void Set(int i, int j, string value);
 	// Добавляем данные о новой фигуре по списку аргументов
 	void Add(string type, string ar, string x1, string y1, string x2, string y2);
-
-	// Заменяем данные координат о фигуре
-	void Move(int figure_index, string type);
-	// Заменяем данные о повороте фигуры
-	void Rotate(int figure_index);
-	// Изменить размер фигуры
-	void Resize(int figure_index);
-	// Перекрасить фигуру
-	void Repaint(int figure_index);
 
 	// Вывести данные о фигуре
 	void Print_data(int figure_index);
