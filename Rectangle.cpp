@@ -13,7 +13,7 @@ int Max(int a, int b) {
 }
 
 // Ввод данных прямоугольника
-void Rectangle::Add() {
+void Rectangle::Adding() {
     cout << "Coordinates of opposite vertices: " << endl;
     int x1, y1, x2, y2;
     cout << "x1 = ";
@@ -50,7 +50,7 @@ void Rectangle::Draw(sf::RenderWindow& window, int i) {
 }
 
 // Поворот прямоугольника
-void Rectangle::Rotate(int figure_index) {
+void Rectangle::Rotating(int figure_index) {
     cout << "Rotate the figure clockwise (in degrees): " << endl;
     int angle = Input_any_int();
 

@@ -1,7 +1,7 @@
 #include "Square.h"
 
 // Ввод данных квадрата
-void Square::Add() {
+void Square::Adding() {
     cout << "coordinates of upper left corner: " << endl;
     string x1, y1, side_length, x2, y2;
     cout << "x = ";
@@ -37,7 +37,7 @@ void Square::Draw(sf::RenderWindow& window, int i) {
 }
 
 // Поворот квадрата
-void Square::Rotate(int figure_index) {
+void Square::Rotating(int figure_index) {
     cout << "Rotate the figure clockwise (in degrees): " << endl;
     int angle = Input_any_int();
 

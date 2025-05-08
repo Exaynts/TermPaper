@@ -1,7 +1,7 @@
 #include "Line.h"
 
 // Ввод данных линии
-void Line::Add() {
+void Line::Adding() {
 
     cout << "Coordinates of opposite peaks: " << endl;
     string x1, y1, x2, y2;
@@ -38,7 +38,7 @@ void Line::Draw(sf::RenderWindow& window, int i) {
 }
 
 // Поворот линии
-void Line::Rotate(int figure_index) {
+void Line::Rotating(int figure_index) {
     cout << "Rotate the figure clockwise (in degrees): " << endl;
     int angle = Input_any_int();
 

@@ -1,7 +1,7 @@
 #include "Circle.h"
 
 // ¬вод данных круга
-void Circle::Add() {
+void Circle::Adding() {
     string radius, x, y;
     cout << "radius = ";
     radius = to_string(Input_int());
@@ -31,7 +31,7 @@ void Circle::Draw(sf::RenderWindow& window, int i) {
 }
 
 // »зменить размер фигуры
-void Circle::Resize(int figure_index) {
+void Circle::Resizing(int figure_index) {
     cout << "Figure magnification factor (1.0 won't change the size): " << endl;
     float scale = Input_float();
     string radius = to_string(int(round(scale * stoul(data->Get(figure_index, 1)))));

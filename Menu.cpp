@@ -121,24 +121,23 @@ void Menu::Change_figure(int figure_index) {
         cout << "Select one of the following fuctions:" << endl;
         cout << "(Move, Rotate, Resize, Repaint, Print_data, Cancel, Delete)" << endl;
         cin >> function;
+        string type = data->Get(figure_index, 0);
 
         figures figures;
         if (function == "Move") {
-            string type = data->Get(figure_index, 0);
-            figures.Move(figure_index, type);
+            figures.Moving(figure_index, type);
             break;
         }
         else if (function == "Rotate") {
-            string type = data->Get(figure_index, 0);
             figures.Rotate(type, figure_index);
             break;
         }
         else if (function == "Resize") {
-            figures.Resize(figure_index);
+            figures.Resize(figure_index, type);
             break;
         }
         else if (function == "Repaint") {
-            figures.Repaint(figure_index);
+            figures.Repainting(figure_index);
             break;
         }
         else if (function == "Print_data") {
