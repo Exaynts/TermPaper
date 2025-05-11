@@ -28,8 +28,8 @@ void Data::Set(int i, int j, string value) {
 }
 
 // Добавляем данные о новой фигуре
-void Data::Add(string type, string ar, string x1, string y1, string x2, string y2) {
-    vector<string> figure{type, ar, x1, y1, x2, y2, "255", "255", "255"};
+void Data::Add(string type, string ar, string x1, string y1, string x2, string y2, string r_color, string g_color, string b_color) {
+    vector<string> figure{type, ar, x1, y1, x2, y2, r_color, g_color, b_color };
     data.push_back(figure);
 }
 

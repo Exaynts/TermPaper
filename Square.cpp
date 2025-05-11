@@ -1,4 +1,5 @@
 #include "Square.h"
+Square f_square;
 
 // ¬вод данных квадрата
 void Square::Adding() {

@@ -1,4 +1,5 @@
 #include "Line.h"
+Line f_line;
 
 // ¬вод данных линии
 void Line::Adding() {

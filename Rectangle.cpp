@@ -1,4 +1,5 @@
 #include "Rectangle.h"
+Rectangle f_rectangle;
 
 // Максимум и минимум
 int Min(int a, int b) {

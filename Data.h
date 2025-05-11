@@ -21,7 +21,7 @@ public:
 	// Сеттер
 	void Set(int i, int j, string value);
 	// Добавляем данные о новой фигуре по списку аргументов
-	void Add(string type, string ar, string x1, string y1, string x2, string y2);
+	void Add(string type, string ar, string x1, string y1, string x2, string y2, string r_color = "255", string g_color = "255", string b_color = "255");
 
 	// Вывести данные о фигуре
 	void Print_data(int figure_index);

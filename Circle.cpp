@@ -1,4 +1,5 @@
 #include "Circle.h"
+Circle f_circle;
 
 // ¬вод данных круга
 void Circle::Adding() {
