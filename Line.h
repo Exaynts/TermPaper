@@ -1,8 +1,12 @@
 #pragma once
-#include "figures.h"
+#include "Shape.h"
 
-class Line: public figures {
+class Line: public Shape {
+protected:
+	string name;
 public:
+	Line() : name("Line") {}
+	const string& Get_Name() const { return name; }
 	// Ввод данных
 	void Adding();
 	// Поворот линии
@@ -10,3 +14,5 @@ public:
 	// Отрисовка
 	void Draw(sf::RenderWindow& window, int i);
 };
+
+extern Line f_line;

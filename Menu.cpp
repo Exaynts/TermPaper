@@ -1,11 +1,13 @@
 #include "Menu.h"
 using namespace std;
 
+Data* Menu::data = nullptr;
+
 // Вход в программу
 Data Menu::Entrance() {
     // Определение списка данных по умолчанию
-    Data data = Data();
-    figures::Init(data);
+    Data data;
+    //figures::Init(data);
     string function = "";
     while (true) {
         cout << "Create or load picture?" << endl;
@@ -91,9 +93,9 @@ void Menu::Create_figure() {
         cout << "(Line, Square, Rectangle, Circle)" << endl;
         cin >> type;
 
-        figures figures;
         if (type == "Line" or type == "Square" or type == "Rectangle" or type == "Circle") {
-            figures.Add(type);
+            auto shape = TypeFigure::Type(type);
+            shape->Adding();
             break;
         }
         else
@@ -123,21 +125,21 @@ void Menu::Change_figure(int figure_index) {
         cin >> function;
         string type = data->Get(figure_index, 0);
 
-        figures figures;
+        auto shape = TypeFigure::Type(data->Get(figure_index, 0));
         if (function == "Move") {
-            figures.Moving(figure_index, type);
+            shape->Moving(figure_index);
             break;
         }
         else if (function == "Rotate") {
-            figures.Rotate(type, figure_index);
+            shape->Rotating(figure_index);
             break;
         }
         else if (function == "Resize") {
-            figures.Resize(figure_index, type);
+            shape->Resizing(figure_index);
             break;
         }
         else if (function == "Repaint") {
-            figures.Repainting(figure_index);
+            shape->Repainting(figure_index);
             break;
         }
         else if (function == "Print_data") {

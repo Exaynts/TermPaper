@@ -1,8 +1,12 @@
 #pragma once
-#include "figures.h"
+#include "Shape.h"
 
-class Square : public figures {
+class Square : public Shape {
+protected:
+	string name;
 public:
+	Square() : name("Square") {}
+	const string& Get_Name() const { return name; }
 	// Ввод данных
 	void Adding();
 	// Поворот квадрата
@@ -10,3 +14,5 @@ public:
 	// Отрисовка
 	void Draw(sf::RenderWindow& window, int i);
 };
+
+extern Square f_square;

@@ -1,8 +1,12 @@
 #pragma once
-#include "figures.h"
+#include "Shape.h"
+#include "Typefigure.h"
 #include <fstream> // Для загрузки файла в функции Load()
 using namespace std;
-class Menu: public figures{
+class Menu {
+protected:
+    // Статический указатель на данные, общие для всех фигур
+    static Data* data;
 public:
     // Вход в программу
     static Data Entrance();

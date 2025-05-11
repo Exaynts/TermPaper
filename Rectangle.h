@@ -1,8 +1,12 @@
 #pragma once
-#include "figures.h"
+#include "Shape.h"
 
-class Rectangle : public figures {
+class Rectangle : public Shape {
+protected:
+	string name;
 public:
+	Rectangle() : name("Rectangle") {}
+	const string& Get_Name() const { return name; }
 	// Ввод данных
 	void Adding();
 	// Поворот прямоугольника
@@ -10,3 +14,5 @@ public:
 	// Отрисовка
 	void Draw(sf::RenderWindow& window, int i);
 };
+
+extern Rectangle f_rectangle;
