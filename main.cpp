@@ -20,7 +20,7 @@ int main() {
             auto shape = TypeFigure::Type(data->Get(i, 0));
             shape->Draw(window, i);
         }
-        // Заканчиваем текущую рамку
+	// Отображает окно
         window.display();
         // Главное меню
         if (!Menu::Main_Menu())
