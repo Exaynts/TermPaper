@@ -1,35 +1,32 @@
 #pragma once
 #include "Shape.h"
 #include "Typefigure.h"
-#include <fstream> // Для загрузки файла в функции Load()
+#include <fstream> // Г„Г«Гї Г§Г ГЈГ°ГіГ§ГЄГЁ ГґГ Г©Г«Г  Гў ГґГіГ­ГЄГ¶ГЁГЁ Load()
 #include <vector>
 
 using namespace std;
 
 class Menu {
-protected:
-    // Статический указатель на данные, общие для всех фигур
-    static Data* data;
-public:
-    // Вход в программу
-    static Data* Entrance();
-    // Загрузить данные фигур с файла
-    static bool Load(string& file_path);
-    // Главное меню
-    static bool Main_Menu();
-
-    // Создать фигуру
-    static void Create_figure();
-    // Выбрать фигуру (по индексу)
-    static int Select_figure();
-    // Изменить фигуру
-    static void Change_figure(int figure_index);
-
-
 private:
     vector<Shape*> ptype;
     int Select_Item(int) const;
+protected:
+    // Г‘ГІГ ГІГЁГ·ГҐГ±ГЄГЁГ© ГіГЄГ Г§Г ГІГҐГ«Гј Г­Г  Г¤Г Г­Г­Г»ГҐ, Г®ГЎГ№ГЁГҐ Г¤Г«Гї ГўГ±ГҐГµ ГґГЁГЈГіГ°
+    static Data* data;
 public:
+    // Г‚ГµГ®Г¤ Гў ГЇГ°Г®ГЈГ°Г Г¬Г¬Гі
+    static Data* Entrance();
+    // Г‡Г ГЈГ°ГіГ§ГЁГІГј Г¤Г Г­Г­Г»ГҐ ГґГЁГЈГіГ° Г± ГґГ Г©Г«Г 
+    static bool Load(string& file_path);
+    // ГѓГ«Г ГўГ­Г®ГҐ Г¬ГҐГ­Гѕ
+    static bool Main_Menu();
+
+    // Г‘Г®Г§Г¤Г ГІГј ГґГЁГЈГіГ°Гі
+    static void Create_figure();
+    // Г‚Г»ГЎГ°Г ГІГј ГґГЁГЈГіГ°Гі (ГЇГ® ГЁГ­Г¤ГҐГЄГ±Гі)
+    static int Select_figure();
+    // Г€Г§Г¬ГҐГ­ГЁГІГј ГґГЁГЈГіГ°Гі
+    static void Change_figure(int figure_index);
     Menu(vector<Shape*> _ptype) : ptype(_ptype) {}
     Shape* Select_Type() const;
 };
