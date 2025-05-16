@@ -1,4 +1,21 @@
-﻿#include "Menu.h"
+﻿#include <iostream>
+#include <vector>
+#include <string> // Для функций to_string() и stoi()
+#include <math.h> // Для вычисления координат в функции Rotate()
+#include <fstream> // Для сохранения файла
+
+#include "Data.h"
+#include "Menu.h"
+#include "Shape.h"
+#include "Line.h"
+#include "Square.h"
+#include "Rectangle.h"
+#include "Circle.h"
+#include "TypeFigure.h"
+#include "Input.h"
+
+#include <SFML/Graphics.hpp>
+using namespace std;
 
 // Точка входа программы
 int main() {
@@ -7,6 +24,7 @@ int main() {
     // Создание окна
     unsigned int width = 800;
     unsigned int height = 800;
+    cout << "Creating window 800x800..." << endl;
     sf::RenderWindow window(sf::VideoMode({ width, height }), "Graphic redactor");
     window.setPosition(sf::Vector2i(10, 50));
     // Программа работает, пока она открыта

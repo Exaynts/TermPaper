@@ -5,12 +5,12 @@ Circle f_circle;
 void Circle::Adding() {
     string radius, x, y;
     cout << "radius = ";
-    radius = to_string(Input_int());
+    radius = to_string(Input::Input_natural0("!0"));
     cout << "x = ";
-    x = to_string(Input_int());
+    x = to_string(Input::Input_natural0());
     cout << "y = ";
-    y = to_string(Input_int());
-    data->Add("Circle", radius, x, y, "0", "0");
+    y = to_string(Input::Input_natural0());
+    data->Add("Circle", radius, x, y);
     cout << "The index of new figure: " << data->Length() - 1 << endl;
 }
 
@@ -34,7 +34,7 @@ void Circle::Draw(sf::RenderWindow& window, int i) {
 // Изменить размер фигуры
 void Circle::Resizing(int figure_index) {
     cout << "Figure magnification factor (1.0 won't change the size): " << endl;
-    float scale = Input_float();
+    float scale = Input::Input_pos_float();
     string radius = to_string(int(round(scale * stoul(data->Get(figure_index, 1)))));
     data->Set(figure_index, 1, radius);
 }

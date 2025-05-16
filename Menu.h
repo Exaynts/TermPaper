@@ -1,7 +1,7 @@
 #pragma once
 #include "Shape.h"
 #include "Typefigure.h"
-#include <fstream> // Äëÿ çàãðóçêè ôàéëà â ôóíêöèè Load()
+#include <fstream> // Для Load()
 #include <vector>
 
 using namespace std;
@@ -9,24 +9,25 @@ using namespace std;
 class Menu {
 private:
     vector<Shape*> ptype;
-    int Select_Item(int) const;
 protected:
-    // Ñòàòè÷åñêèé óêàçàòåëü íà äàííûå, îáùèå äëÿ âñåõ ôèãóð
+    // 
+    // Статический указатель на данные, общие для всех фигур
     static Data* data;
 public:
-    // Âõîä â ïðîãðàììó
+    // Вход в программу
     static Data* Entrance();
-    // Çàãðóçèòü äàííûå ôèãóð ñ ôàéëà
+    // Загрузить данные фигур с файла
     static bool Load(string& file_path);
-    // Ãëàâíîå ìåíþ
+    // Главное меню
     static bool Main_Menu();
 
-    // Ñîçäàòü ôèãóðó
+    // Создать фигуру
     static void Create_figure();
-    // Âûáðàòü ôèãóðó (ïî èíäåêñó)
+    // Выбрать фигуру (по индексу)
     static int Select_figure();
-    // Èçìåíèòü ôèãóðó
+    // Изменить фигуру
     static void Change_figure(int figure_index);
     Menu(vector<Shape*> _ptype) : ptype(_ptype) {}
+    // Выбор типа фигуры
     Shape* Select_Type() const;
 };

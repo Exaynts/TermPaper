@@ -18,13 +18,13 @@ void Rectangle::Adding() {
     cout << "Coordinates of opposite vertices: " << endl;
     int x1, y1, x2, y2;
     cout << "x1 = ";
-    x1 = Input_int();
+    x1 = Input::Input_natural0();
     cout << "y1 = ";
-    y1 = Input_int();
+    y1 = Input::Input_natural0();
     cout << "x2 = ";
-    x2 = Input_int();
+    x2 = Input::Input_natural0();
     cout << "y2 = ";
-    y2 = Input_int();
+    y2 = Input::Input_natural0();
     // Координаты первой вершины должны быть не меньше второй
     data->Add("Rectangle", "0", to_string(Min(x1, x2)), to_string(Min(y1, y2)), to_string(Max(x1, x2)), to_string(Max(y1, y2)));
     cout << "The index of new figure: " << data->Length() - 1 << endl;
@@ -53,18 +53,18 @@ void Rectangle::Draw(sf::RenderWindow& window, int i) {
 // Поворот прямоугольника
 void Rectangle::Rotating(int figure_index) {
     cout << "Rotate the figure clockwise (in degrees): " << endl;
-    int angle = Input_any_int();
+    int angle = Input::Input_any_int();
 
-    float x1 = float(stoi(data->Get(figure_index, 2)));
-    float y1 = float(stoi(data->Get(figure_index, 3)));
-    float x2 = float(stoi(data->Get(figure_index, 4)));
-    float y2 = float(stoi(data->Get(figure_index, 5)));
-    float a;
+    double x1 = double(stoi(data->Get(figure_index, 2)));
+    double y1 = double(stoi(data->Get(figure_index, 3)));
+    double x2 = double(stoi(data->Get(figure_index, 4)));
+    double y2 = double(stoi(data->Get(figure_index, 5)));
+    double a;
     if (x2 == x1)
         a = tan(3.141592 / 2 + angle * 3.141592 / 180.0);
     else
         a = tan(atan((y2 - y1) / (x2 - x1)) + angle * 3.141592 / 180.0);
-    float b = pow(((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)), 0.5) / 2;
+    double b = pow(((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)), 0.5) / 2;
 
     int new_angle = (angle + stoi(data->Get(figure_index, 1))) % 360;
 

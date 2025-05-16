@@ -16,11 +16,11 @@ Data* Menu::Entrance() {
         cout << "1.Create 2.Load" << endl;
         cin >> function;
         // Оставляем всё, как есть
-        if (function == "1") {
+        if (function == "1") { // "Create"
             break;
         }
         // Заполняем список данными из файла
-        else if (function == "2") {
+        else if (function == "2") { // "Load"
             cout << "Enter the path to the data file: " << endl;
             string file_path = "";
             cin >> file_path;
@@ -66,16 +66,11 @@ bool Menu::Main_Menu() {
     }
     cout << '\n';
     // Выбор функции
-    int action = -1;
-    action = Input_int();
-    while (action > action_list.size()) { // Вводим допустимый индекс
-        cout << "This number is too high!";
-        action = Input_int();
-    }
+    int action = Input::Input_natural0("!0", action_list.size()); // Вводим допустимый индекс
     // Действие согласно номеру в списке
     switch (action) {
-        case 1: Menu::Create_figure(); break;
-        case 2:
+        case 1: Menu::Create_figure(); break; // "Create" 
+        case 2: // "Select"
             if (data->Length() != 0) {
                 int figure_index = Menu::Select_figure();
                 data->Print_data(figure_index);
@@ -85,9 +80,9 @@ bool Menu::Main_Menu() {
                 cout << "There is no one figure in the list! Create figure!" << endl;
             }
             break;
-        case 3: data->Print_all_data(); break;
-        case 4: data->Save_data(); break;
-        case 5: return false;
+        case 3: data->Print_all_data(); break; // "Print data"
+        case 4: data->Save_data(); break; // "Save data"
+        case 5: return false; // "Exit"
         default:
             cout << "ActionError!" << endl;
     }
@@ -106,14 +101,10 @@ void Menu::Create_figure() {
 // Выбрать фигуру (по индексу)
 int Menu::Select_figure() {
     cout << "Write index of your figure " << "(max index = " << data->Length() - 1 << "): ";
-    int figure_index = -1;
-    while (figure_index < 0 or figure_index >= data->Length()) {
-        figure_index = Input_int();
-        if (figure_index >= data->Length())
-            cout << "This number is too high!" << endl;
-    }
+    int figure_index = Input::Input_natural0("0", data->Length() - 1); // Вводим допустимый индекс;
     return figure_index;
 }
+
 // Изменить фигуру
 void Menu::Change_figure(int figure_index) {
     // Показ функций
@@ -124,54 +115,33 @@ void Menu::Change_figure(int figure_index) {
     }
     cout << '\n';
     // Выбор функции
-    int action = -1;
-    action = Input_int();
-    while (action > action_list.size()) { // Вводим допустимый индекс
-        cout << "This number is too high!";
-        action = Input_int();
-    }
+    int action = Input::Input_natural0("!0", action_list.size() - 1);
     // Создание шаблона фигуры
     string type = data->Get(figure_index, 0);
     auto shape = TypeFigure::Type(data->Get(figure_index, 0));  
     // Действие согласно номеру в списке
     switch (action) {
-    case 1: shape->Moving(figure_index); break;
-    case 2: shape->Rotating(figure_index); break;
-    case 3: shape->Resizing(figure_index); break;
-    case 4: shape->Repainting(figure_index); break;
-    case 5: data->Print_data(figure_index);
-    case 6: break;
-    case 7: data->Delete(figure_index); break;
+    case 1: shape->Moving(figure_index); break; // "Move"
+    case 2: shape->Rotating(figure_index); break; // "Rotate"
+    case 3: shape->Resizing(figure_index); break; // "Resize"
+    case 4: shape->Repainting(figure_index); break; // "Repaint" 
+    case 5: data->Print_data(figure_index); // "Print data"
+    case 6: break; // "Cancel"
+    case 7: data->Delete(figure_index); break; // "Delete"
     default:
         cout << "ActionError!" << endl;
     }
 }
 
-
+// Выбор типа фигуры
 Shape* Menu::Select_Type() const {
-    int n_item = ptype.size();
+    int n_item = ptype.size(); // количество типов фигур
     cout << "Select one of the following types: (write number)\n";
 
     for (int i = 0; i < n_item; ++i) {
         cout << i + 1 << ". ";
         cout << ptype[i]->Get_Name() << endl;
     }
-    int item = Select_Item(n_item);
+    int item = Input::Input_natural0("!0", n_item);
     return ptype[item - 1];
-}
-
-int Menu::Select_Item(int n_item) const {
-    int item;
-    while (true) {
-        item = Input_int();
-        if ((item > 0) && (item <= n_item) && (cin.peek() == '\n')) {
-            cin.get(); break;
-        }
-        else {
-            cout << "Error(must be number from 1 to " << n_item
-                << "):\n";
-            cin.clear();
-        }
-    }
-    return item;
 }

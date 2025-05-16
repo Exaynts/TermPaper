@@ -6,11 +6,11 @@ void Square::Adding() {
     cout << "coordinates of upper left corner: " << endl;
     string x1, y1, side_length, x2, y2;
     cout << "x = ";
-    x1 = to_string(Input_int());
+    x1 = to_string(Input::Input_natural0());
     cout << "y = ";
-    y1 = to_string(Input_int());
+    y1 = to_string(Input::Input_natural0());
     cout << "side length = ";
-    side_length = to_string(Input_int());
+    side_length = to_string(Input::Input_natural0("!0"));
     x2 = to_string(stoi(x1) + stoi(side_length)); // Вычисляем x2
     y2 = to_string(stoi(y1) + stoi(side_length)); // Вычисляем y2
     data->Add("Square", "0", x1, y1, x2, y2);
@@ -40,18 +40,18 @@ void Square::Draw(sf::RenderWindow& window, int i) {
 // Поворот квадрата
 void Square::Rotating(int figure_index) {
     cout << "Rotate the figure clockwise (in degrees): " << endl;
-    int angle = Input_any_int();
+    int angle = Input::Input_any_int();
 
-    float x1 = float(stoi(data->Get(figure_index, 2)));
-    float y1 = float(stoi(data->Get(figure_index, 3)));
-    float x2 = float(stoi(data->Get(figure_index, 4)));
-    float y2 = float(stoi(data->Get(figure_index, 5)));
-    float a;
+    double x1 = double(stoi(data->Get(figure_index, 2)));
+    double y1 = double(stoi(data->Get(figure_index, 3)));
+    double x2 = double(stoi(data->Get(figure_index, 4)));
+    double y2 = double(stoi(data->Get(figure_index, 5)));
+    double a;
     if (x2 == x1)
         a = tan(3.141592 / 2 + angle * 3.141592 / 180.0);
     else
         a = tan(atan((y2 - y1) / (x2 - x1)) + angle * 3.141592 / 180.0);
-    float b = pow(((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)), 0.5) / 2;
+    double b = pow(((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)), 0.5) / 2;
 
     int new_angle = (angle + stoi(data->Get(figure_index, 1))) % 360;
 
