@@ -4,57 +4,6 @@ using namespace std;
 
 Data* Menu::data = nullptr;
 
-// Вход в программу
-Data* Menu::Entrance() {
-    // Определение списка данных по умолчанию
-    data = new Data();
-    Shape::Set_data(data);
-    string function = "";
-    while (true) {
-        cout << "To select a function, enter the desired number" << endl;
-        cout << "Create or load picture?" << endl;
-        cout << "1.Create 2.Load" << endl;
-        cin >> function;
-        // Оставляем всё, как есть
-        if (function == "1") { // "Create"
-            break;
-        }
-        // Заполняем список данными из файла
-        else if (function == "2") { // "Load"
-            cout << "Enter the path to the data file: " << endl;
-            string file_path = "";
-            cin >> file_path;
-            // Пока не загрузятся данные
-            while (!Menu::Load(file_path)) {
-                cin >> file_path;
-            }
-            break;
-        }
-        else
-            cout << "Enter the text correctly!" << endl;
-    }
-    return data;
-}
-
-// Загрузить данные фигур с файла
-bool Menu::Load(string& file_path) {
-    ifstream file(file_path);
-    if (file_path == "break")
-        return true;
-    else if (!file.is_open()) {
-        cerr << "The file was not found. To create an empty data list, write \"break\"." << endl;
-        return false;
-    }
-    else {
-        string type, ar, x1, y1, x2, y2, r_color, g_color, b_color;
-        while (file >> type >> ar >> x1 >> y1 >> x2 >> y2 >> r_color >> g_color >> b_color) {
-            data->Add(type, ar, x1, y1, x2, y2, r_color, g_color, b_color);
-        }
-        file.close();
-    }
-    return true;
-}
-
 // Главное меню
 bool Menu::Main_Menu() {
     string function = "";
@@ -81,7 +30,7 @@ bool Menu::Main_Menu() {
             }
             break;
         case 3: data->Print_all_data(); break; // "Print data"
-        case 4: data->Save_data(); break; // "Save data"
+        case 4: Save_data::Save(data); break; // "Save data"
         case 5: return false; // "Exit"
         default:
             cout << "ActionError!" << endl;

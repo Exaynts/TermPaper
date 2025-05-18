@@ -1,7 +1,9 @@
 #pragma once
 #include "Shape.h"
 #include "Typefigure.h"
-#include <fstream> // Для Load()
+#include "Load_data.h"
+#include "Save_data.h"
+#include "Init_data.h"
 #include <vector>
 
 using namespace std;
@@ -10,17 +12,14 @@ class Menu {
 private:
     vector<Shape*> ptype;
 protected:
-    // 
-    // Статический указатель на данные, общие для всех фигур
+    // Статический указатель на список фигур
     static Data* data;
 public:
-    // Вход в программу
-    static Data* Entrance();
-    // Загрузить данные фигур с файла
-    static bool Load(string& file_path);
+    // Сеттер указателя на список фигур
+    static void Set_data(Data* d) { data = d; };
+
     // Главное меню
     static bool Main_Menu();
-
     // Создать фигуру
     static void Create_figure();
     // Выбрать фигуру (по индексу)

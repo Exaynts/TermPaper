@@ -148,11 +148,14 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Data.cpp" />
+    <ClCompile Include="Init_data.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Line.cpp" />
+    <ClCompile Include="Load_data.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Save_data.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="TypeFigure.cpp" />
@@ -160,10 +163,13 @@
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="Init_data.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Line.h" />
+    <ClInclude Include="Load_data.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Save_data.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="TypeFigure.h" />

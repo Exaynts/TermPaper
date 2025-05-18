@@ -16,19 +16,20 @@ public:
 	Data();
 	// Количество фигур
 	int Length();
-	// Геттер
+	// Геттер параметра элемента списка
 	string Get(int i, int j);
-	// Сеттер
+	// Геттер количества параметров у фигуры
+	int Get_par();
+	// Сеттер параметра элемента списка
 	void Set(int i, int j, string value);
 	// Добавляем данные о новой фигуре по списку аргументов
-	void Add(string type = "Unknown", string ar = "0", string x1 = "0", string y1 = "0", string x2 = "0", string y2 = "0", string r_color = "255", string g_color = "255", string b_color = "255");
+	void Add(string type = "Unknown", string ar = "0", string x1 = "0", string y1 = "0", string x2 = "0", string y2 = "0", 
+		string r_color = "0", string g_color = "0", string b_color = "0");
 
 	// Вывести данные о фигуре
 	void Print_data(int figure_index);
 	// Вывести данные о всех фигурах
 	void Print_all_data();
-	// Сохранить данные о фигурах в отдельный файл
-	void Save_data();
 	// Удаляем данные о фигуре
 	void Delete(int figure_index);
 };

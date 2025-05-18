@@ -34,7 +34,7 @@ void Circle::Draw(sf::RenderWindow& window, int i) {
 // Изменить размер фигуры
 void Circle::Resizing(int figure_index) {
     cout << "Figure magnification factor (1.0 won't change the size): " << endl;
-    float scale = Input::Input_pos_float();
+    double scale = Input::Input_pos_double();
     string radius = to_string(int(round(scale * stoul(data->Get(figure_index, 1)))));
     data->Set(figure_index, 1, radius);
 }
