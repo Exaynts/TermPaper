@@ -6,8 +6,7 @@
 
 class Shape;
 
-class TypeFigure
-{
+class TypeFigure {
 public:
 	// Определение типа фигуры
 	static unique_ptr<Shape> Type(const string& type);

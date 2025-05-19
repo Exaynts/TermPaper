@@ -20,7 +20,7 @@
 #include <SFML/Graphics.hpp>
 using namespace std;
 
-// Точка входа программы
+// Точка входа в программу
 int main() {
     system("color F0"); // Цвет консоли (белый)
     // Инициализация базы данных

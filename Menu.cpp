@@ -64,7 +64,7 @@ void Menu::Change_figure(int figure_index) {
     }
     cout << '\n';
     // Выбор функции
-    int action = Input::Input_natural0("!0", action_list.size() - 1);
+    int action = Input::Input_natural0("!0", action_list.size());
     // Создание шаблона фигуры
     string type = data->Get(figure_index, 0);
     auto shape = TypeFigure::Type(data->Get(figure_index, 0));  

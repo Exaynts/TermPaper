@@ -10,8 +10,8 @@ using namespace std;
 
 class Menu {
 private:
+    // Вектор-список типов фигур
     vector<Shape*> ptype;
-protected:
     // Статический указатель на список фигур
     static Data* data;
 public:
