@@ -20,6 +20,7 @@
 #include <SFML/Graphics.hpp>
 using namespace std;
 
+
 // Точка входа в программу
 int main() {
     system("color F0"); // Цвет консоли (белый)
@@ -32,6 +33,12 @@ int main() {
     sf::RenderWindow window(sf::VideoMode({ width, height }), "Graphic redactor");
     window.setPosition(sf::Vector2i(10, 50));
     window.setPosition(sf::Vector2i(10, 50));
+    // Ставим иконку
+    sf::Image logo;
+    if (!logo.loadFromFile("logo.PNG")) { 
+        cout << "Logo hasn't loaded\n"; 
+    }
+    window.setIcon(logo);
     // Программа работает, пока она открыта
     while (window.isOpen()) {
         while (const optional event = window.pollEvent()) {
