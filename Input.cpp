@@ -1,8 +1,8 @@
 #include "Input.h"
 
-// Ввод неотрицательного целого числа, не превышающее max (по умолчанию 65535). Аргумент "!0" дополительно отсекает число ноль
+// Г‚ГўГ®Г¤ Г­ГҐГ®ГІГ°ГЁГ¶Г ГІГҐГ«ГјГ­Г®ГЈГ® Г¶ГҐГ«Г®ГЈГ® Г·ГЁГ±Г«Г , Г­ГҐ ГЇГ°ГҐГўГ»ГёГ ГѕГ№ГҐГҐ max (ГЇГ® ГіГ¬Г®Г«Г·Г Г­ГЁГѕ 65535). ГЂГ°ГЈГіГ¬ГҐГ­ГІ "!0" Г¤Г®ГЇГ®Г«ГЁГІГҐГ«ГјГ­Г® Г®ГІГ±ГҐГЄГ ГҐГІ Г·ГЁГ±Г«Г® Г­Г®Г«Гј
 int Input::Input_natural0(string iszero, int max) {
-	int begin = 0; // Проверка на исключение нуля
+	int begin = 0; // ГЏГ°Г®ГўГҐГ°ГЄГ  Г­Г  ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ Г­ГіГ«Гї
 	if (iszero == "!0")
 		begin = 1;
 
@@ -12,10 +12,11 @@ int Input::Input_natural0(string iszero, int max) {
 		while (cin.get() != '\n');
 		cout << "Error (must be number from " << begin << " to " << max << "):" << endl;
 	}
+	cin.ignore();
 	return input;
 }
 
-// Ввод целого числа
+// Г‚ГўГ®Г¤ Г¶ГҐГ«Г®ГЈГ® Г·ГЁГ±Г«Г 
 int Input::Input_any_int() {
 	int input;
 	while (!(cin >> input) or (cin.peek() != '\n')) {
@@ -23,10 +24,11 @@ int Input::Input_any_int() {
 		while (cin.get() != '\n');
 		cout << "Enter the number correctly!" << endl;
 	}
+	cin.ignore();
 	return input;
 }
 
-// Ввод неотрицательного действительного числа
+// Г‚ГўГ®Г¤ Г­ГҐГ®ГІГ°ГЁГ¶Г ГІГҐГ«ГјГ­Г®ГЈГ® Г¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГјГ­Г®ГЈГ® Г·ГЁГ±Г«Г 
 double Input::Input_pos_double() {
 	double input;
 	while (!(cin >> input) or (cin.peek() != '\n') or input < 0) {
@@ -34,5 +36,6 @@ double Input::Input_pos_double() {
 		while (cin.get() != '\n');
 		cout << "Enter the number correctly!" << endl;
 	}
+	cin.ignore();
 	return input;
 }
